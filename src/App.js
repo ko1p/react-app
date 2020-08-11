@@ -18,6 +18,13 @@ class App extends Component {
     this.setState({ cars: newCarsState })
   }
 
+  inputHandler(name, index) {
+    const newCarsState = [...this.state.cars];
+    newCarsState[index].name = name;
+    this.setState({name})
+
+  }
+
   render() {
     return (
       <div>
@@ -30,6 +37,7 @@ class App extends Component {
                 name={car.name}
                 year={car.year}
                 deleteHendler={() => this.deleteHendler(index)}
+                inputHandler={(event) => this.inputHandler(event.target.value, index)}
               />
             )
           })

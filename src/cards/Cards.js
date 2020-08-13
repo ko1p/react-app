@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
+import Radium from 'radium';
 import './Cards.css';
 
 const card = (props) => {
@@ -14,8 +15,16 @@ const card = (props) => {
     inputClasses.push('bold')
   }
 
+  const styles = {
+    ":hover": {
+      backgroundColor: "#ccc",
+      transition: '.3s',
+      cursor: 'pointer'
+    }
+  };
+
   return (
-    <div className="Cards">
+    <div className="Cards" style={styles}>
       <p>Модель: <strong>{props.name}</strong></p>
       <p>Год: <strong>{props.year}</strong></p>
       <input 
@@ -29,4 +38,4 @@ const card = (props) => {
   )
 }
 
-export default card;
+export default Radium(card);

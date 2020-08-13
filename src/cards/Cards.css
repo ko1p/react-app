@@ -7,3 +7,20 @@
     border: 1px solid black;
     box-shadow: 0 0 5px 0 black;
 }
+
+.input {
+    background-color: rgb(253, 236, 214);
+    outline: none;
+}
+
+.input.red {
+    border-color: red;
+}
+
+.input.green {
+    border-color: green;
+}
+
+.input.bold {
+    font-weight: bold;
+}

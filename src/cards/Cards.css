@@ -1,0 +1,9 @@
+.Cards {
+    width: 200px;
+    margin-top: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    box-shadow: 0 0 5px 0 black;
+}

@@ -35,41 +35,30 @@ class App extends Component {
 
 
     return (
-      <div>
+      <div style={{
+        textAlign: "center",
+        width: 230,
+        margin: 'auto'
+      }}>
         <p>Список карточек</p>
         <button onClick={this.toggleMenu}>show/hide</button>
 
-      {
-        this.state.isCardsShow ? 
-          this.state.cars.map((car, index) => {
-            return (
-              <Cards 
-                key={index}
-                name={car.name}
-                year={car.year}
-                deleteHendler={() => this.deleteHendler(index)}
-                inputHandler={(event) => this.inputHandler(event.target.value, index)}
-              />
-            )
-          })
-        : 
-          null
-      }
-
-        {/* {
-          this.state.cars.map((car, index) => {
-            return (
-              <Cards 
-                key={index}
-                name={car.name}
-                year={car.year}
-                deleteHendler={() => this.deleteHendler(index)}
-                inputHandler={(event) => this.inputHandler(event.target.value, index)}
-              />
-            )
-          })
-        } */}
-
+        {
+          this.state.isCardsShow ? 
+            this.state.cars.map((car, index) => {
+              return (
+                <Cards 
+                  key={index}
+                  name={car.name}
+                  year={car.year}
+                  deleteHendler={() => this.deleteHendler(index)}
+                  inputHandler={(event) => this.inputHandler(event.target.value, index)}
+                />
+              )
+            })
+          : 
+            null
+        }
       </div>
     )
  

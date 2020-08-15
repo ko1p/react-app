@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <App />,
+  <App title={'Список карточек'}/>,
   document.getElementById('root'),
 );
 

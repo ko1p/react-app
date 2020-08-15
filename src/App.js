@@ -4,13 +4,17 @@ import Cards from './cards/Cards';
 
 class App extends Component {
 
-  state = {
-    cars: [
-      {name: 'ford', year: 2016},
-      {name: 'mazda', year: 2010},
-      {name: 'opel', year: 2011}
-    ],
-    isCardsShow: true,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cars: [
+        {name: 'ford', year: 2016},
+        {name: 'mazda', year: 2010},
+        {name: 'opel', year: 2011}
+      ],
+      isCardsShow: true,
+    }
   }
 
   deleteHendler(index) {
@@ -31,8 +35,19 @@ class App extends Component {
     })
   }
 
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
+
+
+
   render() {
 
+    console.log('App render')
 
     return (
       <div style={{
@@ -40,7 +55,7 @@ class App extends Component {
         width: 230,
         margin: 'auto'
       }}>
-        <p>Список карточек</p>
+        <p>{this.props.title}</p>
         <button onClick={this.toggleMenu}>show/hide</button>
 
         {

@@ -18,26 +18,29 @@ class Cards extends React.Component {
     console.log('Cards componentWillUpdate', nextProps, nextState)
   }
 
-  static getDerivedStateFromProps(nexpProps, prevState) {
-    console.log('getDerivedStateFromProps', nexpProps, prevState)
-    return prevState
-  }
+  // static getDerivedStateFromProps(nexpProps, prevState) {
+  //   console.log('getDerivedStateFromProps', nexpProps, prevState)
+  //   return prevState
+  // }
 
   componentDidUpdate(nextProps, nextState) {
     console.log('Cards componentDidUpdate', nextProps, nextState)
   }
 
-  getSnapshotBeforeUpdate() {
-    console.log('Cards getSnapshotBeforeUpdate')
-  }
+  // getSnapshotBeforeUpdate() {
+  //   console.log('Cards getSnapshotBeforeUpdate')
+  // }
 
   componentWillUnmount() {
     console.log('Cards componentWillUnmount')
   }
 
   render() {
-
     console.log('Cards render')
+
+    if (Math.random() > 0.6) {
+      throw new Error('Card is failed')
+    }
 
     const inputClasses = ['input'];
     if (this.props.name !== '') {

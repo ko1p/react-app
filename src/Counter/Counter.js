@@ -8,9 +8,17 @@ export default class Counter extends React.Component {
     }
 
     addCounter = () => {
-        this.setState({
-            counter: this.state.counter + 1
+        // this.setState({
+        //     counter: this.state.counter + 1
+        // })
+
+        // более правильный вариант менять стейт
+        this.setState((prevState) => {
+            return {
+                counter: prevState.counter + 1
+            }
         })
+
     }
 
     reduceCounter = () => {

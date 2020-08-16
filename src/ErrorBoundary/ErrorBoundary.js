@@ -18,7 +18,6 @@ export default class ErrorBoundary extends React.Component {
                 <h1 style={{color: 'red'}}>Card component was crashed!</h1>
             )
         }
-        console.log(this.props.children, '12312312')
         return this.props.children
     }
 }

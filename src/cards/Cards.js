@@ -38,9 +38,10 @@ class Cards extends React.Component {
   render() {
     console.log('Cards render')
 
-    if (Math.random() > 0.6) {
-      throw new Error('Card is failed')
-    }
+    // Генерация случайной ошибки
+    // if (Math.random() > 0.6) {
+    //   throw new Error('Card is failed')
+    // }
 
     const inputClasses = ['input'];
     if (this.props.name !== '') {

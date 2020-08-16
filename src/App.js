@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Cards from './cards/Cards';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
+import Counter from './Counter/Counter'
 
 class App extends Component {
 
@@ -11,8 +12,8 @@ class App extends Component {
     this.state = {
       cars: [
         {name: 'ford', year: 2016},
-        {name: 'mazda', year: 2010},
-        {name: 'opel', year: 2011}
+        // {name: 'mazda', year: 2010},
+        // {name: 'opel', year: 2011}
       ],
       isCardsShow: false,
     }
@@ -58,6 +59,7 @@ class App extends Component {
       }}>
         <p>{this.props.title}</p>
         <button onClick={this.toggleMenu}>show/hide</button>
+        <Counter />
 
         {
           this.state.isCardsShow ? 

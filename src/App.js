@@ -10,10 +10,10 @@ class App extends Component {
     this.state = {
       cars: [
         {name: 'ford', year: 2016},
-        {name: 'mazda', year: 2010},
-        {name: 'opel', year: 2011}
+        // {name: 'mazda', year: 2010},
+        // {name: 'opel', year: 2011}
       ],
-      isCardsShow: true,
+      isCardsShow: false,
     }
   }
 

@@ -1,90 +1,31 @@
-import React, { Component } from 'react';
-import './App.css';
-import Cards from './cards/Cards';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
-import Counter from './Counter/Counter'
+import React, {Component} from 'react'
+import './App.scss'
 
 class App extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      cars: [
-        {name: 'ford', year: 2016},
-        // {name: 'mazda', year: 2010},
-        // {name: 'opel', year: 2011}
-      ],
-      isCardsShow: false,
-    }
+  state = {
+    counter: 0
   }
 
-  deleteHendler(index) {
-    const newCarsState = this.state.cars.concat();
-    newCarsState.splice(index, 1)
-    this.setState({ cars: newCarsState })
-  }
-
-  inputHandler(name, index) {
-    const newCarsState = [...this.state.cars];
-    newCarsState[index].name = name;
-    this.setState({name})
-  }
-
-  toggleMenu = () => {
+  updateCounter(value) {
     this.setState({
-      isCardsShow: !this.state.isCardsShow
+      counter: this.state.counter + value
     })
   }
 
-  componentWillMount() {
-    console.log('App componentWillMount')
-  }
-
-  componentDidMount() {
-    console.log('App componentDidMount')
-  }
-
-
-
   render() {
-
-    console.log('App render')
-
     return (
-      <div style={{
-        textAlign: "center",
-        width: 230,
-        margin: 'auto'
-      }}>
-        <p>{this.props.title}</p>
-        <button onClick={this.toggleMenu}>show/hide</button>
-        <Counter />
+      <div className={'App'}>
+        <h1>Счетчик <strong>{this.state.counter}</strong></h1>
 
-        {
-          this.state.isCardsShow ? 
-            this.state.cars.map((car, index) => {
-              return (
-                <ErrorBoundary key={index}> 
-                  <Cards 
-                    name={car.name}
-                    year={car.year}
-                    deleteHendler={() => this.deleteHendler(index)}
-                    inputHandler={(event) => this.inputHandler(event.target.value, index)}
-                  />
-                </ErrorBoundary>              )
-            })
-          : 
-            null
-        }
+        <hr/>
+
+        <div className="Actions">
+          <button onClick={() => this.updateCounter(1)}>Добавить 1</button>
+          <button onClick={() => this.updateCounter(-1)}>Вычесть 1</button>
+        </div>
       </div>
     )
- 
-
-
-
   }
-
 }
 
-export default App;
+export default App

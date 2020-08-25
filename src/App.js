@@ -19,8 +19,9 @@ class App extends Component {
         <hr/>
 
         <div className="Actions">
-          <button onClick={() => this.updateCounter(1)}>Добавить 1</button>
-          <button onClick={() => this.updateCounter(-1)}>Вычесть 1</button>
+          <button onClick={this.props.onAdd}>Добавить 1</button>
+          <button onClick={this.props.onSub}>Вычесть 1</button>
+          <button onClick={() => this.props.onAddNumber(14)}>Добавить 14</button>
         </div>
       </div>
     )
@@ -33,4 +34,13 @@ const mapStateToProps = (state /*, ownProps*/) => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAdd: () => dispatch({type: 'ADD'}),
+    onSub: () => dispatch({type: 'SUB'}),
+    onAddNumber: (number) => dispatch({type: 'onAddNumber', payload: number})
+
+  }
+} 
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

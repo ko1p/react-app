@@ -25,3 +25,11 @@ export function onAdd2(number) {
         payload: number
     }
 }
+
+export function addAsync(number) {
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch(onAddNumber(number))
+        }, 3000)
+    }
+}
